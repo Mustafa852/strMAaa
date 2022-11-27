@@ -14,7 +14,7 @@ exports.run = async (client, message, args) => {
     )
     .setColor("RANDOM")
     .setTitle(` **oy ver gardeeş** `)
-    .setDescription(`**oy Vermek için** [TIKLA](https://top.gg/bot/756883309270663229/vote)
+    .setDescription(`**oy Vermek için** [TIKLA](https://top.gg/bot/1037392359249432598/vote)
   
       ${message.author.username} Tarafından İstendi.`,
       message.author.displayAvatarURL({ dynamic: true })
