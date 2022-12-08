@@ -771,25 +771,6 @@ client.on("guildMemberAdd", async member => {
 
 
 //---------------------------------KOMUTLAR---------------------------------\\
-client.on('message', async message => {
-     if(!ayarlar.sahip.includes(message.author.id)) return; 
-  if (message.content === '.katıl') { 
-    client.emit('guildMemberAdd', message.member);
-    message.channel.send('Katılış Eventi Tetiklendi.')
-      }
-     if(!ayarlar.sahip.includes(message.author.id)) return; 
-  if (message.content === '.ayrıl') { // 
-    client.emit('guildMemberRemove', message.member);
-   message.channel.send('Çıkış Eventi Tetiklendi.')
-      }
-  
-    if(!ayarlar.sahip.includes(message.author.id)) return; 
-  if (message.content === '.banekle') { // 
-    client.emit('guildBanAdd', message.member);
-   message.channel.send('Ban Eventi Tetiklendi.')
-      }
-  });
-
 client.on("guildMemberAdd", async (member) => {
     let { oldu, hata, prefix, bot } = require("./ayarlar.json")
     let log = await db.fetch(`logkayıt.${member.guild.id}`)
