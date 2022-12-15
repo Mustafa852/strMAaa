@@ -1467,15 +1467,15 @@ client.on("guildMemberAdd", async member => {
 //// çekiliş
 const { GiveawaysManager } = require('discord-giveaways');
 client.giveawaysManager = new GiveawaysManager(client, {
-    storage: "./db.json",
-    updateCountdownEvery: 3000,
+    storage: "./giveaways.json",
+    updateCountdownEvery: 5000,
     default: {
         botsCanWin: false,
+        exemptPermissions: [ "MANAGE_MESSAGES", "ADMINISTRATOR" ],
         embedColor: "#FF0000",
         reaction: "🎉"
-    }
+    }//#FF0000
 });
-
 //// çekiliş son//Güvenlik Baş
 
 client.on("guildMemberAdd", member => {
