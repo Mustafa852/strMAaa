@@ -3,11 +3,15 @@ const Discord = require("discord.js");
 const num = require("num-parse");
 
 exports.run = async (client, message, args) => {
-  if (!message.member.hasPermission("MANAGE_GUILD"))
+  if (!message.member.hasPermission("ADMINISTRATOR"))
     return message.inlineReply(
-      "❌ | Sen çekiliş yapamazsın. `Sunucuyu Yönet` yetkisine sahip değilsin!"
+      "❌ | Sen çekiliş yapamazsın. `Administrator` yetkisine sahip değilsin!"
     );
-  let time = args[0];
+  let giveawayChannel = message.mentions.channels.first();
+  if (!giveawayChannel) {
+    return message.inlineReply(":x: Geçerli Bir Kanaldan Bahsetmelisin!");
+  }
+  let time = args[1];
   if (!time)
     return message.inlineReply(
       '❌ | Lütfen geçerli bir zaman girin. Örneğin: "1s", "1m", "1d" vb.'
@@ -17,21 +21,21 @@ exports.run = async (client, message, args) => {
       "❌ | Hediye verme süresi 10 günden az olmalıdır."
     );
   }
-  let winners = args[1];
+  let winners = args[2];
   if (!winners)
     return message.inlineReply(
       '❌ | Lütfen geçerli kazanan sayısı sağlayın. Örneğin: "1k", "2k"'
     );
   winners = num(winners, 1);
   if (winners > 15)
-    return message.inlineReply("❌ | Hediye kazananlar 15'ten az olmalıdır.");
-  let prize = args.slice(2).join(" ");
+    return message.inlineReply("❌ | Hediyeyi kazananlar 15'ten az olmalıdır.");
+  let prize = args.slice(3).join(" ");
   if (!prize)
     return message.inlineReply(
-      "❌ | Lütfen hediye için ödülü sağlayın. Örneğin: `!çekiliş 1d 2k Discord Nitro`."
+      "❌ | Lütfen hediye için ödülü sağlayın. Örneğin: `.çekiliş 1d 2k Discord Nitro`."
     );
 
-  client.giveawaysManager.start(message.channel, {
+  client.giveawaysManager.start(giveawayChannel, {
     time: ms(time),
     winnerCount: winners,
     prize: prize,
@@ -42,7 +46,7 @@ exports.run = async (client, message, args) => {
       timeRemaining: "Kalan Süre **{duration}**!",
       inviteToParticipate: 'Çekilişe katılmak için "🎉" emojisine basınız!',
       winMessage:
-        "🎊 Tebrikler, {winners} çekilişi kazandınız. Ödülünüz ${prize}",
+        "🎊 Tebrikler, {winners} çekilişi kazandınız. İşte ödülünüz **{prize}**!",
       embedFooter: "Vengaful",
       noWinner: "Geçersiz katılımlar yüzünden kimse kazanmadı!",
       hostedBy: "Çekiliş Başlatan: {user}",
@@ -62,11 +66,11 @@ exports.run = async (client, message, args) => {
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ["başlat"],
+  aliases: ["çekiliş"],
   permlevel: 4
 };
 exports.help = {
-  name: "başlat",
+  name: "çekiliş",
   despricton: "açıklama",
   usage: "önerilog"
 };
