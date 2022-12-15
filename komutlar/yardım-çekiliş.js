@@ -13,10 +13,15 @@ let cse = new Discord.MessageEmbed()//discord.gg/turkiye
 
 
 
-🎉 **s!reroll**  \`Çekilişi yeniler.\` \n
-🎉 **s!sonlandır**  \`Çekilişi Sonlandırır.\` \n
-🎉 **s!başlat**  \`Çekilişi Başlatır.\` \n
+**.başlat** : Çekiliş Başlatırsınız..
 
+**.bitir** : Çekilişi Bitirirsiniz.
+
+**.edit** : Çekilişi Düzenlersiniz.
+
+**.reroll** : Çekilişteki Kazananları Tekrar Çekersiniz.
+
+**.sil** : Çekilişi Silersiniz.
 
 `)
 .setFooter("Strom / Discord'da Yeni Devrim \nherhangi bir hatada s!hata (hata)\nönerileriniz için s!öneri (öneriniz)")

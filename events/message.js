@@ -12,6 +12,7 @@ let client = message.client;
 	setTimeout(() => {
     talkedRecently.delete(message.author.id);
   }, 0);
+  
   if (message.author.bot) return;
   if (!message.content.startsWith(ayarlar.prefix)) return;
   let command = message.content.split(' ')[0].slice(ayarlar.prefix.length);

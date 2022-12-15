@@ -25,7 +25,17 @@ const fetch = require('node-fetch')
 const queue = new Map();
 const YouTube = require("simple-youtube-api");
 const ytdl = require("ytdl-core");
-
+const bot = new Strom.Client({ disableEveryone: true });
+require("moment-duration-format");
+require("./komut.js")(bot);
+require("./yanıtlama");
+const newUsers = new Strom.Collection();
+bot.commands = new Strom.Collection();
+bot.aliases = new Strom.Collection();
+module.exports = {
+  bot: bot,
+  Discord: Strom
+};
 let prefix = ayarlar.prefix;
 
 client.ekoayarlar = {
