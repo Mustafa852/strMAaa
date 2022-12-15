@@ -43,7 +43,6 @@ dependencies:
   node-fetch: 2.6.7
   node-superfetch: 0.1.11
   npm: 7.24.2
-  num-parse: 1.0.1
   orio.db: 3.1.2
   parse-ms: 2.1.0
   path: 0.12.7
@@ -4494,10 +4493,6 @@ packages:
     dev: false
     resolution:
       integrity: sha512-lqjrjmaOoAnWfMmBPL+XNnynZh2+swxiX3WUE0s4yEHI6m+AwrK2UZOimIRl3X/4QctVqS8AiZjFqyOGrMXb/w==
-  /num-parse/1.0.1:
-    dev: false
-    resolution:
-      integrity: sha512-H7fFw3wyc6Oydd1IITSNgkRs3lr9jxQsFK5EQOb1Mt1FcKkxmhXd76seyvrQhdtl3ofKSmMXVVNC7Ceg8qpcEw==
   /number-is-nan/1.0.1:
     dev: false
     engines:
@@ -6430,7 +6425,6 @@ specifiers:
   node-fetch: ^2.6.7
   node-superfetch: ^0.1.11
   npm: ^7.20.6
-  num-parse: ^1.0.1
   orio.db: ^3.1.2
   parse-ms: ^2.1.0
   path: ^0.12.7

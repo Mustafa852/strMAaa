@@ -13,17 +13,9 @@ let cse = new Discord.MessageEmbed()//discord.gg/turkiye
 
 
 
-🎉**s!başlat** : Çekiliş Başlatırsınız..
-
-🎉**s!bitir** : Çekilişi Bitirirsiniz.
-
-🎉**s!edit** : Çekilişi Düzenlersiniz.
-
-🎉**s!reroll** : Çekilişteki Kazananları Tekrar Çekersiniz.
-
-🎉**s!sil** : Çekilişi Silersiniz.
-
- 
+🎉 **s!reroll**  \`Çekilişi yeniler.\` \n
+🎉 **s!sonlandır**  \`Çekilişi Sonlandırır.\` \n
+🎉 **s!başlat**  \`Çekilişi Başlatır.\` \n
 
 
 `)
