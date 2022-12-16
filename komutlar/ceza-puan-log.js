@@ -32,7 +32,7 @@ const maho = new Discord.MessageEmbed().setColor("ff0000");
   })
   
   message.channel.send(new MessageEmbed()
-  .setFooter("𝓡𝓪𝓲𝓷𝓰𝓼")
+  .setFooter("Strom")
   .setColor("#006bff")
   .setDescription(`
   <:barrl:879417882528849920> Ceza puan log ${wellcome} kanalına ayarlandı

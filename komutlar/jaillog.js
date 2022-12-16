@@ -30,7 +30,7 @@ const maho = new Discord.MessageEmbed().setColor("ff0000");
         if(err) message.channel.send("Hata: " + err)
     })
   message.channel.send(new MessageEmbed()
-  .setFooter("𝓡𝓪𝓲𝓷𝓰𝓼")
+  .setFooter("Strom")
   .setColor("#006bff")
   .setDescription(`
   <:barrl:879417882528849920> jail log  ${wellcome} kanalına ayarlandı
