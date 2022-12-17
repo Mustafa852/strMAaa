@@ -13,15 +13,15 @@ let cse = new Discord.MessageEmbed()//discord.gg/turkiye
 
 
 
-**.başlat** : Çekiliş Başlatırsınız..
+**s!başlat** : Çekiliş Başlatırsınız..
 
-**.bitir** : Çekilişi Bitirirsiniz.
+**s!bitir** : Çekilişi Bitirirsiniz.
 
-**.edit** : Çekilişi Düzenlersiniz.
+**s!edit** : Çekilişi Düzenlersiniz.
 
-**.reroll** : Çekilişteki Kazananları Tekrar Çekersiniz.
+**s!reroll** : Çekilişteki Kazananları Tekrar Çekersiniz.
 
-**.sil** : Çekilişi Silersiniz.
+**s!sil** : Çekilişi Silersiniz.
 
 `)
 .setFooter("Strom / Discord'da Yeni Devrim \nherhangi bir hatada s!hata (hata)\nönerileriniz için s!öneri (öneriniz)")
@@ -35,7 +35,7 @@ message.channel.send(cse)
       
       },
 module.exports.conf = {
-aliases: ["çekiliş-sistemi","çekiliş"]
+aliases: ["çekiliş-sistemi","çekiliş-yardım"]
 }
 
 module.exports.help = {
