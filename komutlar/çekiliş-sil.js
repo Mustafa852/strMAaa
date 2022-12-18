@@ -43,5 +43,5 @@ exports.conf = {
   permLevel: 0
 };
 exports.help = {
-  name: "sil"
+  name: "ç-sil"
 };
