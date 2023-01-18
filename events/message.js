@@ -51,9 +51,7 @@ let client = message.client;
   };
   };
 
-  if(message.author.id !== '846736343593779230') { 
-  if(db.fetch(message.author.id)) return message.reply('Sen botun karalistesindesin. Komutları kullanamazsın.');
-  };
+ 
     cmd.run(client, message, params, perms);
   }  
 };
