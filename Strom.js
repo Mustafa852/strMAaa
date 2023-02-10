@@ -1558,3 +1558,62 @@ db.delete(`time.${message.guild.id}.${message.author.id}`);
 
 
 });
+
+
+//// müzik
+
+const Discord = require('discord.js');
+
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+});
+
+client.on('message', msg => {
+  if (msg.content === '!disconnect') {
+    if (msg.member.voice.channel) {
+      msg.member.voice.channel.leave();
+    } else {
+      msg.reply('You need to join a voice channel first!');
+    }
+  } else if (msg.content === '!pause') {
+    const connection = client.voice.connections.get(msg.guild.id);
+    if (connection) {
+      const dispatcher = connection.dispatcher;
+      if (dispatcher) {
+        dispatcher.pause();
+      }
+    }
+  } else if (msg.content === '!resume') {
+    const connection = client.voice.connections.get(msg.guild.id);
+    if (connection) {
+      const dispatcher = connection.dispatcher;
+      if (dispatcher) {
+        dispatcher.resume();
+      }
+    }
+  } else if (msg.content.startsWith('!play')) {
+    const args = msg.content.split(' ');
+    const voiceChannel = msg.member.voice.channel;
+    if (!voiceChannel) return msg.reply('You need to join a voice channel first!');
+
+    voiceChannel.join().then(connection => {
+      const stream = args[1]; // The stream URL
+      const dispatcher = connection.play(stream);
+
+      dispatcher.on('start', () => {
+        console.log('Stream has started!');
+      });
+
+      dispatcher.on('finish', () => {
+        console.log('Stream has finished!');
+        voiceChannel.leave();
+      });
+
+      dispatcher.on('error', error => {
+        console.error(error);
+        voiceChannel.leave();
+      });
+    });
+  }
+});
+
