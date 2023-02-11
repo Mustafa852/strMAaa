@@ -1562,30 +1562,4 @@ db.delete(`time.${message.guild.id}.${message.author.id}`);
 
 //// müzik
 
-const Discord = require('discord.js');
-
-client.on('guildMemberUpdate', async (oldMember, newMember) => {
-  const guild = newMember.guild;
-  const member = newMember;
-
-  if (!member.roles.cache.has('818413544311619586')) {
-    const role = guild.roles.cache.get('818413544311619586');
-
-    if (member.partial) {
-      try {
-        await member.fetch();
-      } catch (error) {
-        console.error('Error fetching member: ', error);
-      }
-    }
-
-    const votes = await fetch(`https://top.gg/api/bots/1037392359249432598/check?userId=${member.id}`).then(response => response.json());
-
-    if (votes.voted === 1) {
-      member.roles.add(role).catch(console.error);
-    } else {
-      member.roles.remove(role).catch(console.error);
-    }
-  }
-});
 
