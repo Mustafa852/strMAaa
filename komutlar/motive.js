@@ -3,7 +3,7 @@ const db = require("quick.db");
 const ayarlar = require("../ayarlar.json");
 
 exports.run = async (client, message, args) => {
-let prefix = require("../ayarlar.json");
+let prefix = (await db.fetch(prefix_${message.guild.id})) || "!";
 
 let motivasyonlar = [
 "Başarı sana güven duymanla başlar.",
@@ -21,16 +21,12 @@ let motivasyonlar = [
 let motivasyon = motivasyonlar[Math.floor(Math.random() * motivasyonlar.length)];
 
 const embed = new Discord.MessageEmbed()
-  .setAuthor(
-    `${client.user.username} `,
-    client.user.displayAvatarURL({ dynamic: true })
-  )
-  .setColor("RANDOM")
-  .setTitle(` **Motivasyon** `)
-  .setDescription(`${motivasyon}`);
+.setColor("RANDOM")
+.setTitle(Motivasyon Mesajı)
+.setDescription(${motivasyon})
+.setFooter(${message.author.username} tarafından istendi.);
 
-message.channel.send(embed);
-
+return message.channel.send(embed);
 };
 
 exports.conf = {

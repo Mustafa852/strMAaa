@@ -1,37 +1,44 @@
-const Discord = require("discord.js");
+const Discord = require('discord.js');
+const database = require('quick.db');
 
-exports.run = async (client, message, args) => {
-  const sahip = "846736343593779230"; // Bot sahibinin kullanıcı kimliğini buraya yazın
+exports.run = async (client, message, args) => {// can#0002
+if(message.author.id !== '846736343593779230') return;
 
-  if(message.author.id !== sahip) return message.channel.send("Bu komutu sadece belirli kişiler kullanabilir!");
-  
-  let bakim = args.join(" ");
-  if(!bakim) return message.channel.send("Lütfen bakım nedeni belirtin!");
-  
-  message.delete();
-  let bakimEmbed = new Discord.MessageEmbed()
-    .setTitle("Bakım Modu")
-    .setColor("#ff0000")
-    .addField("Bakım Nedeni", bakim)
-    .setFooter("Bot Bakım Modunda");
-  
-  client.guilds.cache.forEach(g => {
-    g.channels.cache.forEach(c => {
-      if(c.type === "text") c.send(bakimEmbed);
-    });
-  });
-  
+function gönderkardesim(content) {
+const infoEmbed = new Discord.MessageEmbed()
+.setColor('BLUE')
+.setDescription(content)
+.setTimestamp()
+.setAuthor(message.author.username, message.author.displayAvatarURL({ dynamic: true }));
+return message.channel.send(infoEmbed)
 };
 
+const durum = await database.fetch(client.user.id);
+if(durum == true) {
+
+await database.delete(client.user.id);
+return gönderkardesim('Bakım artık sona erdi.');
+
+} else {
+
+await database.set(client.user.id, true);
+database.set(client.user.id+':)', { 
+author: message.author,
+time: Date.now() 
+});
+
+return gönderkardesim('Bakım modu açıldı.\nArtık hiç bir kimse komutları kullanamayacak.');
+};
+
+
+}; 
 exports.conf = {
   enabled: true,
   guildOnly: false,
   aliases: ['bakım'],
   permLevel: 0
 };
-
+ 
 exports.help = {
-  name: "bakım",
-  description: "Bakım moduna geçirir.",
-  usage: "bakım [neden]"
-};
+  name: 'bakım-modu'
+};// codare ♥
