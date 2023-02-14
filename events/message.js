@@ -38,7 +38,6 @@ let client = message.client;
   };
 
   if (cmd) {
-
 if (db.fetch(`cokaradalistere_${message.author.id}`)) return message.channel.send("Olamaz sen botun karalistesinde bulunuyorsun botu kullanamazsın. https://discord.gg/fr43SS2n64")
     cmd.run(client, message, params, perms);
   }  

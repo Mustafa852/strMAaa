@@ -1,7 +1,9 @@
 const Discord = require("discord.js");
 
 exports.run = async (client, message, args) => {
-  if(message.author.id !== sahip) return message.channel.send("Bu komutu sadece sahip kullanabilir!");
+  const sahip = "846736343593779230"; // Bot sahibinin kullanıcı kimliğini buraya yazın
+
+  if(message.author.id !== sahip) return message.channel.send("Bu komutu sadece belirli kişiler kullanabilir!");
   
   let bakim = args.join(" ");
   if(!bakim) return message.channel.send("Lütfen bakım nedeni belirtin!");
