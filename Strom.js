@@ -1561,34 +1561,3 @@ db.delete(`time.${message.guild.id}.${message.author.id}`);
 
 
 //// Deprem
-
-const sqlite = require('better-sqlite3');
-const Discord = require('discord.js');
-
-// Deprem logları için Discord kanalı adı
-const channelName = 'deprem-loglari';
-
-// SQLite veritabanı bağlantısı oluştur
-const db = new sqlite('deprem-db.sqlite');
-db.prepare('CREATE TABLE IF NOT EXISTS depremloglari (id INTEGER PRIMARY KEY, tarih TEXT, saat TEXT, enlem REAL, boylam REAL, derinlik REAL, buyukluk REAL, yer TEXT, magType TEXT)').run();
-
-// Deprem verilerini kontrol etmek ve yeni depremleri kanala göndermek için bir fonksiyon
-async function checkDepremler() {
-  const sonDepremlerUrl = 'http://www.koeri.boun.edu.tr/scripts/lst0.asp';
-  const response = await fetch(sonDepremlerUrl);
-  const html = await response.text();
-
-  // Deprem verilerini ayıkla ve SQLite veritabanına kaydet
-  const regex = /([0-9]{2}\.[0-9]{2}\.[0-9]{4}) ([0-9]{2}\:[0-9]{2}\:[0-9]{2}) ([0-9\.]*) ([0-9\.]*) ([0-9\.]*) ([0-9\.]*) (.*?)<\/pre>/gm;
-  let match;
-  while ((match = regex.exec(html))) {
-    const [_, tarih, saat, enlem, boylam, derinlik, buyukluk, yer] = match;
-    const statement = db.prepare('INSERT INTO depremloglari (tarih, saat, enlem, boylam, derinlik, buyukluk, yer, magType) VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
-    statement.run(tarih, saat, enlem, boylam, derinlik, buyukluk, yer, '');
-  }
-
-  // Yeni depremleri bul ve kanala gönder
-  const sonId = db.prepare('SELECT MAX(id) as sonId FROM depremloglari').get().son
-
-
-
