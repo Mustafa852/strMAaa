@@ -1561,5 +1561,3 @@ db.delete(`time.${message.guild.id}.${message.author.id}`);
 
 
 //// müzik
-
-

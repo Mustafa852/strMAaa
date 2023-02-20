@@ -2,6 +2,7 @@ dependencies:
   akaneko: 5.2.3
   aki-api: 6.0.8
   axios: 0.21.4
+  better-sqlite3: 8.1.0
   better-uptime: 1.1.4
   canvacord: 5.4.6
   canvas: 2.10.2
@@ -1221,6 +1222,14 @@ packages:
     requiresBuild: true
     resolution:
       integrity: sha512-S5zIU1Hink2AH4xPsN0W43T1/AJ5jrPh7Oy07ocuW/AKYYY02GWzz9NH0nbSMn/gw6fDZ5jZ1QsHt1BXAwJ6Lg==
+  /better-sqlite3/8.1.0:
+    dependencies:
+      bindings: 1.5.0
+      prebuild-install: 7.1.1
+    dev: false
+    requiresBuild: true
+    resolution:
+      integrity: sha512-p1m09H+Oi8R9TPj810pdNswMFuVgRNgCJEWypp6jlkOgSwMIrNyuj3hW78xEuBRGok5RzeaUW8aBtTWF3l/TQA==
   /better-uptime/1.1.4:
     dependencies:
       ms: 2.1.3
@@ -4065,6 +4074,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q==
+  /minimist/1.2.8:
+    dev: false
+    resolution:
+      integrity: sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==
   /minipass/2.9.0:
     dependencies:
       safe-buffer: 5.2.1
@@ -4262,14 +4275,14 @@ packages:
     dev: false
     resolution:
       integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
-  /node-abi/3.24.0:
+  /node-abi/3.33.0:
     dependencies:
-      semver: 7.3.7
+      semver: 7.3.8
     dev: false
     engines:
       node: '>=10'
     resolution:
-      integrity: sha512-YPG3Co0luSu6GwOBsmIdGW6Wx0NyNDLg/hriIyDllVsNwnI6UeqaWShxC3lbH4LtEQUgoLP3XR1ndXiDAWvmRw==
+      integrity: sha512-7GGVawqyHF4pfd0YFybhv/eM9JwTtPqx0mAanQ146O3FlSh3pA24zf9IRQTOsfTSqXTNzPSP5iagAJ94jjuVog==
   /node-emoji/1.11.0:
     dependencies:
       lodash: 4.17.21
@@ -4882,10 +4895,10 @@ packages:
       detect-libc: 2.0.1
       expand-template: 2.0.3
       github-from-package: 0.0.0
-      minimist: 1.2.6
+      minimist: 1.2.8
       mkdirp-classic: 0.5.3
       napi-build-utils: 1.0.2
-      node-abi: 3.24.0
+      node-abi: 3.33.0
       pump: 3.0.0
       rc: 1.2.8
       simple-get: 4.0.1
@@ -5045,7 +5058,7 @@ packages:
     dependencies:
       deep-extend: 0.6.0
       ini: 1.3.8
-      minimist: 1.2.6
+      minimist: 1.2.8
       strip-json-comments: 2.0.1
     dev: false
     hasBin: true
@@ -6389,6 +6402,7 @@ specifiers:
   akaneko: ^5.2.3
   aki-api: ^6.0.8
   axios: ^0.21.1
+  better-sqlite3: ^8.1.0
   better-uptime: ^1.1.4
   canvacord: ^5.0.8
   canvas: ^2.10.2
